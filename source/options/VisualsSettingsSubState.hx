@@ -9,7 +9,7 @@ import options.Option;
 class VisualsSettingsSubState extends BaseOptionsMenu
 {
 	public static var pauseMusics:Array<String> = ['None', 'Tea Time', 'Breakfast', 'Breakfast (Pico)'];
-	public static var menuMusics:Array<String> = ['FreakyMenu', 'Prizmod', 'Artistic Expression', 'Between the Graves and Stars'];
+	public static var menuMusics:Array<String> = ['freakyMenu', 'Prizmod', 'Artistic Expression', 'Between the Graves and Stars'];
 	var noteOptionID:Int = -1;
 	var notes:FlxTypedGroup<StrumNote>;
 	var splashes:FlxTypedGroup<NoteSplash>;

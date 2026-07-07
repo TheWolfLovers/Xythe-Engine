@@ -608,21 +608,6 @@ class TitleState extends MusicBeatState
 
 		FlxG.camera.flash(FlxColor.WHITE, 1);
 		FlxG.sound.play(Paths.sound('confirmMenu'), 0.7);
-	}
-
-	/**
-	 * After sitting on the title screen for a while, transition to the attract screen.
-	 */
-	function moveToAttract():Void
-	{
-		#if VIDEOS_ALLOWED 
-		if (!Std.isOfType(FlxG.state, TitleState))
-			return;
-		#if LEGACY_PSYCH
-		FlxG.switchState(new AttractState()); 
-		#else
-		FlxG.switchState(() -> new AttractState()); 
-		#end
-		#end
+		
 	}
 }

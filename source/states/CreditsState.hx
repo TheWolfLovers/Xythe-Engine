@@ -97,7 +97,7 @@ class CreditsState extends MusicBeatState
 			["kawaisprite",			"kawaisprite",		"Composer of Friday Night Funkin'",							"https://x.com/kawaisprite",		"378FC7"],
 
 			[''],
-			['Finally the end.', '', 'I never thought we\'d ever make it to the end.'],
+			['Finally the end.', '', 'I never thought we\'d ever make it to the end.'], //lol?
 		];
 		
 		for(i in defaultList)

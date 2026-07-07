@@ -75,7 +75,7 @@
 	<define name="CHECK_FOR_UPDATES" unless="web || hl" />
 
 	<!-- Do you want to support playing videos in your build?-->
-	<define name="VIDEOS_ALLOWED" if="desktop || mobile || web" unless="32bits || hl" />
+	<!--define name="VIDEOS_ALLOWED" if="desktop || mobile || web" unless="32bits || hl" /-->
 
 	<!-- Do we want to use ATSC compression?-->
 	<define name="ATSC_SUPPORT" unless="web"/>

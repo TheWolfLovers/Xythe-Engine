@@ -18,6 +18,7 @@ import editors.MasterEditorMenu;
 import mikolka.compatibility.VsliceOptions;
 import flixel.FlxObject;
 
+
 @:access(mikolka.vslice.ui.MainMenuState)
 class DesktopMenuState extends FlxBasic
 {
@@ -46,7 +47,7 @@ class DesktopMenuState extends FlxBasic
 		host.bg.updateHitbox();
 		host.bg.screenCenter();
 
-        host.magenta.scrollFactor.set(0, yScroll);
+        host.magenta.scrollFactor.set();
 		host.magenta.updateHitbox();
 		host.magenta.screenCenter();
 
@@ -82,7 +83,7 @@ class DesktopMenuState extends FlxBasic
 		#end
     }
 
-
+	
 	override function update(elapsed:Float)
 	{
 		if (!selectedSomethin)
@@ -210,4 +211,5 @@ class DesktopMenuState extends FlxBasic
 		camFollow.setPosition(menuItems.members[curSelected].getGraphicMidpoint().x,
 			menuItems.members[curSelected].getGraphicMidpoint().y - (menuItems.length > 4 ? menuItems.length * 8 : 0));
 	}
+
 }

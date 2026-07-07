@@ -7,6 +7,8 @@ import mikolka.vslice.ui.title.TitleState;
 import mikolka.compatibility.ModsHelper;
 import options.OptionsState;
 
+var Bullshitery:Array<String> = [];
+
 class MainMenuState extends MusicBeatState
 {
 	#if !LEGACY_PSYCH
@@ -14,22 +16,32 @@ class MainMenuState extends MusicBeatState
 	#else
 	public static var psychEngineVersion:String = '0.6.3'; // This is also used for Discord RPC
 	#end
+
+	#if (MODS_ALLOWED && !LEGACY_PSYCH)
+	var firstArray:Array<String> = Mods.mergeAllTextsNamed('data/splash.txt');
+	#else
+
+	public static var BullShits:String = NativeFileSystem.getContent(Paths.txt('splash'));
+	public static var Bullshitery:String = "" + BullShits;
+	var firstArray:Array<String> = Bullshitery.split('\n');
+
+	#end
 	public static var pSliceVersion:String = '3.4.2'; 
 	public static var xytheEngineVersion:String = "0.0.4";
 	public static var funkinVersion:String = '0.6.0'; // Version of funkin' we are emulationg
+	
 
 	var bg:FlxSprite;
 	var magenta:FlxSprite;
 
 	var stickerSubState:Bool;
-
 	public function new(?stickers:Bool = false)
 	{
 		super();
 		stickerSubState = stickers;
 		
 	}
-
+	
 	override function create()
 	{
 		if(stickerSubState) ModsHelper.clearStoredWithoutStickers();
@@ -65,17 +77,26 @@ class MainMenuState extends MusicBeatState
 		magenta.color = 0xFFfd719b;
 		add(magenta);
 
+		var Splash:FlxText = new FlxText(0, 250, FlxG.width / 6 , FlxG.random.getObject(firstArray), 24);
 		var psychVer:FlxText = new FlxText(0, FlxG.height - 18, FlxG.width, "Psych Engine " + psychEngineVersion, 12);
 		var fnfVer:FlxText = new FlxText(0, FlxG.height - 18, FlxG.width, 'v${funkinVersion} (P-slice ${pSliceVersion})', 12);
 		var xytheVer:FlxText = new FlxText(0, FlxG.height - 38, FlxG.width, 'Xythe Engine: v${xytheEngineVersion}', 12);
 
+		Splash.setFormat(Paths.font("vcr.ttf"), 24, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		psychVer.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		fnfVer.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		xytheVer.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		
+		Splash.antialiasing = false;
+		Splash.scrollFactor.set();
 		psychVer.scrollFactor.set();
 		fnfVer.scrollFactor.set();
 		xytheVer.scrollFactor.set();
+
+		add(Splash);
+
+		Sys.println(FlxG.random.getObject(firstArray));
+
 		add(psychVer);
 		add(fnfVer);
 		add(xytheVer);

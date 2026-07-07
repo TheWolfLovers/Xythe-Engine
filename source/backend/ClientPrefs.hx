@@ -80,7 +80,7 @@ import states.InitState;
 	public var watermarkType:String = "Normal";
 	public var hitsoundVolume:Float = 0;
 	public var pauseMusic:String = 'Tea Time';
-	public var menuMusic:String = 'FreakyMenu';
+	public var menuMusic:String = 'freakyMenu';
 	public var checkForUpdates:Bool = true;
 	public var comboStacking:Bool = true;
 	public var gameplaySettings:Map<String, Dynamic> = [
